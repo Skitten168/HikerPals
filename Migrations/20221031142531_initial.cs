@@ -2,7 +2,7 @@
 
 namespace HikerPals.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,8 @@ namespace HikerPals.Migrations
                     TrailName = table.Column<string>(nullable: false),
                     Age = table.Column<int>(nullable: false),
                     AverageDailyMiles = table.Column<int>(nullable: false),
-                    YearsExperience = table.Column<int>(nullable: false)
+                    YearsExperience = table.Column<int>(nullable: false),
+                    email = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,7 +29,7 @@ namespace HikerPals.Migrations
                 {
                     TrailId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TName = table.Column<string>(nullable: false),
+                    TName = table.Column<string>(maxLength: 50, nullable: false),
                     Distance = table.Column<double>(nullable: false),
                     HikerId = table.Column<int>(nullable: false)
                 },
@@ -45,8 +46,14 @@ namespace HikerPals.Migrations
 
             migrationBuilder.InsertData(
                 table: "Hikers",
-                columns: new[] { "Id", "Age", "AverageDailyMiles", "TrailName", "YearsExperience" },
-                values: new object[] { 1, 45, 15, "Low Branch", 15 });
+                columns: new[] { "Id", "Age", "AverageDailyMiles", "TrailName", "YearsExperience", "email" },
+                values: new object[,]
+                {
+                    { 1, 45, 15, "Low Branch", 15, "littleJimmy@aol.com" },
+                    { 2, 65, 7, "Ten Steps", 30, "ten@aol.com" },
+                    { 3, 33, 4, "Coach", 2, "coach@aol.com" },
+                    { 4, 35, 4, "The Captain", 2, "Cap@aol.com" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Trails",

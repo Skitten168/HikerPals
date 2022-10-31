@@ -20,34 +20,38 @@ namespace HikerPals.Models
                         TrailName = "Low Branch",
                         Age = 45,
                         AverageDailyMiles = 15,
-                        YearsExperience = 15
-                    }
-                
-              /*      new Hiker
-                    {
-                        Id = 2,
-                        TrailName = "Ten Steps",
-                        Age = 65,
-                        AverageDailyMiles = 7,
-                        YearsExperience = 30
+                        YearsExperience = 15,
+                        email = "littleJimmy@aol.com"
                     },
 
-                    new Hiker
-                    {
-                        Id = 3,
-                        TrailName = "Coach",
-                        Age = 33,
-                        AverageDailyMiles = 4,
-                        YearsExperience = 2
-                    },
-                    new Hiker
-                    {
-                        Id = 4,
-                        TrailName = "The Captain",
-                        Age = 35,
-                        AverageDailyMiles = 4,
-                        YearsExperience = 2
-                    }*/
+                      new Hiker
+                      {
+                          Id = 2,
+                          TrailName = "Ten Steps",
+                          Age = 65,
+                          AverageDailyMiles = 7,
+                          YearsExperience = 30,
+                          email = "ten@aol.com"
+                      },
+
+                      new Hiker
+                      {
+                          Id = 3,
+                          TrailName = "Coach",
+                          Age = 33,
+                          AverageDailyMiles = 4,
+                          YearsExperience = 2,
+                          email = "coach@aol.com"
+                      },
+                      new Hiker
+                      {
+                          Id = 4,
+                          TrailName = "The Captain",
+                          Age = 35,
+                          AverageDailyMiles = 4,
+                          YearsExperience = 2,
+                          email = "Cap@aol.com"
+                      }
                 );
             modelBuilder.Entity<Trail>().HasData(
                 new Trail

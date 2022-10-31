@@ -53,7 +53,7 @@ namespace HikerPals.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TrailName,Age,AverageDailyMiles,YearsExperience")] Hiker hiker)
+        public async Task<IActionResult> Create([Bind("Id,TrailName,Age,AverageDailyMiles,YearsExperience, email")] Hiker hiker)
         {
             if (ModelState.IsValid)
             {

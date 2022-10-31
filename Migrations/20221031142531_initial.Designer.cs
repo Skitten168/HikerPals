@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HikerPals.Migrations
 {
     [DbContext(typeof(HikerContext))]
-    [Migration("20221015180154_Initial")]
-    partial class Initial
+    [Migration("20221031142531_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.25")
+                .HasAnnotation("ProductVersion", "3.1.30")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -40,6 +40,10 @@ namespace HikerPals.Migrations
                     b.Property<int>("YearsExperience")
                         .HasColumnType("int");
 
+                    b.Property<string>("email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Hikers");
@@ -51,7 +55,35 @@ namespace HikerPals.Migrations
                             Age = 45,
                             AverageDailyMiles = 15,
                             TrailName = "Low Branch",
-                            YearsExperience = 15
+                            YearsExperience = 15,
+                            email = "littleJimmy@aol.com"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Age = 65,
+                            AverageDailyMiles = 7,
+                            TrailName = "Ten Steps",
+                            YearsExperience = 30,
+                            email = "ten@aol.com"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Age = 33,
+                            AverageDailyMiles = 4,
+                            TrailName = "Coach",
+                            YearsExperience = 2,
+                            email = "coach@aol.com"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Age = 35,
+                            AverageDailyMiles = 4,
+                            TrailName = "The Captain",
+                            YearsExperience = 2,
+                            email = "Cap@aol.com"
                         });
                 });
 
@@ -70,7 +102,8 @@ namespace HikerPals.Migrations
 
                     b.Property<string>("TName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("TrailId");
 

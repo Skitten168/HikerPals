@@ -7,6 +7,8 @@ namespace HikerPals.Models
     {
         public int TrailId { get; set; }
         [Required(ErrorMessage ="Please enter a trail name")]
+        [RegularExpression("^[a-zA-Z]*$", ErrorMessage = "Only alphabetical letters are allowed.")]
+        [StringLength(50, MinimumLength = 5)]
         public string TName { get; set; }
         public double Distance { get; set; }
         [Required]
